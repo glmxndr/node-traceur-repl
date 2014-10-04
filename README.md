@@ -1,6 +1,6 @@
 # traceur-repl
 
-Another REPL for traceur.
+Another REPL for [traceur](https://github.com/google/traceur-compiler).
 
 (See also the projects 
 [traceur-cli](https://github.com/mikaelbr/traceur-cli) and 
@@ -20,27 +20,20 @@ A prompt `traceur>` should open.
 
 There are several options added to the repl, launch `:help` to see them.
 
-### Use as a normal node repl
 
-Just type javascript code, and it will be transpiled/executed using the latest 
-traceur-compiler version available.
+### List/set traceur options
 
-    traceur> let x = 1
-    undefined
-    traceur> x
-    1
+The traceur compiler accepts many options.
 
-If you want to execute the content of your clipboard, use `:paste`. The content
-pasted is executed. (The section between '<<<' and '>>>' is the content of your 
-clipboard.)
+Launch the command `:opts` in the traceur-repl to see the current options passed to the compiler.
 
-    traceur> :paste
-    <<<
-    ...let x = 1
-    ...let add = (x,y=1) => x+y
-    >>>
+To change options, you can pass arguments to `:opts`.
 
-You may also load a file 
+For instance, `:opts +debug -classes outputLanguage=es6` will have the effect of:
+
+* setting the `debug` option to `true`,
+* setting the `classes` option to `false`,
+* setting the `outputLanguage` option to `'es6'`.
 
 ### Show traceur output
 
@@ -79,18 +72,22 @@ If you want to see how traceur transpiles the content of a file, use `:tfile`.
     var y = add(x, x);
     y;
 
+### Use as a normal node repl
 
-### List/set traceur options
+Just type javascript code, and it will be transpiled/executed using the latest 
+traceur-compiler version available.
 
-The traceur compiler accepts many options.
+    traceur> let x = 1
+    undefined
+    traceur> x
+    1
 
-Launch the command `:opts` in the traceur-repl to see the current options passed to the compiler.
+If you want to execute the content of your clipboard, use `:paste`. The content
+pasted is executed. (The section between '<<<' and '>>>' is the content of your 
+clipboard.)
 
-To change options, you can pass arguments to `:opts`.
-
-For instance, `:opts +debug -classes outputLanguage=es6` will have the effect of:
-
-* setting the `debug` option to `true`,
-* setting the `classes` option to `false`,
-* setting the `outputLanguage` option to `'es6'`.
-
+    traceur> :paste
+    <<<
+    ...let x = 1
+    ...let add = (x,y=1) => x+y
+    >>>
