@@ -1,0 +1,19 @@
+{
+  "name": "traceur-repl",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "traceur-repl": "./index.js"
+  },
+  "author": "subtenante@gmail.com",
+  "license": "GPL",
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "mocha": "^1.21.4"
+  },
+  "dependencies": {
+    "copy-paste": "^0.3.0",
+    "traceur": "*"
+  }
+}
