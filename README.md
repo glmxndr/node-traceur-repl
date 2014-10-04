@@ -22,12 +22,15 @@ A prompt `traceur>` should open.
 
 There are several options added to the repl, launch `:help` to see them.
 
-
 ### List/set traceur options
 
 The traceur compiler accepts many options.
 
+#### Listing the options
+
 Launch the command `:opts` in the traceur-repl to see the current options passed to the compiler.
+
+#### Setting the options
 
 To change options, you can pass arguments to `:opts`.
 
@@ -36,6 +39,27 @@ For instance, `:opts +debug -classes outputLanguage=es6` will have the effect of
 * setting the `debug` option to `true`,
 * setting the `classes` option to `false`,
 * setting the `outputLanguage` option to `'es6'`.
+
+#### Shortcut
+
+If you are lazy, you can spare yourself the end of the name of the option. 
+For instance, the following will set to true all the options starting with 
+'gener' ('generatorComprehension' and 'generators'):
+
+    traceur> :opts +gener
+
+You can enable (resp. disable) all of the boolean options at once by running 
+`:opts +` (rsp. `:opts -`).
+
+#### Experimental
+
+You can enable all the experimental features at the same time with:
+
+    traceur> :opts +experimental
+
+(Disable with `-experimental`.)
+
+You have to write 'experimental' in full though, no shortcut for that one.
 
 ### Show traceur output
 
