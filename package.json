@@ -11,6 +11,9 @@
     "url" : "https://github.com/subtenante/node-traceur-repl.git"
   },
   "author": "subtenante@gmail.com",
+  "keywords": [
+    "traceur", "es6"
+  ],
   "license": "GPL",
   "dependencies": {
     "copy-paste": "^0.3.0",

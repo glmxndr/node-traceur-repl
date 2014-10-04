@@ -6,6 +6,8 @@ Another REPL for [traceur](https://github.com/google/traceur-compiler).
 [traceur-cli](https://github.com/mikaelbr/traceur-cli) and 
 [traceurepl](https://github.com/cncolder/traceurepl).)
 
+Tested only in Linux for now...
+
 ## Install
 
     npm install -g traceur-repl
