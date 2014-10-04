@@ -6,12 +6,12 @@
   "bin": {
     "traceur-repl": "./index.js"
   },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/subtenante/node-traceur-repl.git"
+  },
   "author": "subtenante@gmail.com",
   "license": "GPL",
-  "devDependencies": {
-    "chai": "^1.9.2",
-    "mocha": "^1.21.4"
-  },
   "dependencies": {
     "copy-paste": "^0.3.0",
     "traceur": "*"
