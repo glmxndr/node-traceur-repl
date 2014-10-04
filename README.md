@@ -18,10 +18,11 @@ traceur-compiler version available.
     traceur> x
     1
 
-If you want to see how traceur transpiles, prepend your command by `:c`.
+If you want to see how traceur transpiles in ES5, prepend your command by `:5`.
+In this case, the transpiled code is not executed, only shown.
 For instance:
 
-    traceur> :c let x = 1
+    traceur> :5 let x = 1
     "use strict";
     var x = 1;
 
@@ -33,9 +34,9 @@ If you want to execute the content of your clipboard, use `:paste`.
     ...let add = (x,y=1) => x+y
     >>>
     
-If you want to see how traceur transpiles the content of your clipboard, use `:cpaste`.
+If you want to see how traceur transpiles the content of your clipboard, use `:5paste`.
 
-    traceur> :cpaste
+    traceur> :5paste
     <<<
     ...let x = 1
     ...let add = (x,y=1) => x+y
