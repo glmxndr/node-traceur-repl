@@ -39,7 +39,7 @@ For instance, `:opts +debug -classes outputLanguage=es6` will have the effect of
 
 ### Show traceur output
 
-If you want to see how traceur transpiles in ES5, prepend your command by `:5`.
+If you want to see the result of traceur transpilation, prepend your command by `:t`.
 In this case, the transpiled code is not executed, only shown.
 For instance:
 
