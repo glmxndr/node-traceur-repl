@@ -1,5 +1,11 @@
 # traceur-repl
 
+Another REPL for traceur.
+
+(See also the projects 
+[traceur-cli](https://github.com/mikaelbr/traceur-cli) and 
+[traceurepl](https://github.com/cncolder/traceurepl).)
+
 ## Install
 
     npm install -g traceur-repl
@@ -10,7 +16,13 @@ In the command line, launch `traceur-repl`.
 
 A prompt `traceur>` should open.
 
-Just type es6 code, and it will be transpiled/executed using the latest 
+### Inline help
+
+There are several options added to the repl, launch `:help` to see them.
+
+### Use as a normal node repl
+
+Just type javascript code, and it will be transpiled/executed using the latest 
 traceur-compiler version available.
 
     traceur> let x = 1
@@ -18,25 +30,33 @@ traceur-compiler version available.
     traceur> x
     1
 
-If you want to see how traceur transpiles in ES5, prepend your command by `:5`.
-In this case, the transpiled code is not executed, only shown.
-For instance:
-
-    traceur> :5 let x = 1
-    "use strict";
-    var x = 1;
-
-If you want to execute the content of your clipboard, use `:paste`.
+If you want to execute the content of your clipboard, use `:paste`. The content
+pasted is executed. (The section between '<<<' and '>>>' is the content of your 
+clipboard.)
 
     traceur> :paste
     <<<
     ...let x = 1
     ...let add = (x,y=1) => x+y
     >>>
-    
-If you want to see how traceur transpiles the content of your clipboard, use `:5paste`.
 
-    traceur> :5paste
+You may also load a file 
+
+### Show traceur output
+
+If you want to see how traceur transpiles in ES5, prepend your command by `:5`.
+In this case, the transpiled code is not executed, only shown.
+For instance:
+
+    traceur> :t let x = 1
+    "use strict";
+    var x = 1;
+
+If you want to see how traceur transpiles the content of your clipboard, use `:tpaste`.
+The section between '<<<' and '>>>' is the content of your clipboard, the rest 
+is the transpilation result.
+
+    traceur> :tpaste
     <<<
     ...let x = 1
     ...let add = (x,y=1) => x+y
@@ -47,3 +67,30 @@ If you want to see how traceur transpiles the content of your clipboard, use `:5
       var y = arguments[1] !== (void 0) ? arguments[1] : 1;
       return x + y;
     });
+
+If you want to see how traceur transpiles the content of a file, use `:tfile`.
+
+    traceur> :tfile test/loadMe.js
+    var x = 1;
+    var add = (function(x) {
+      var y = arguments[1] !== (void 0) ? arguments[1] : 1;
+      return x + y;
+    });
+    var y = add(x, x);
+    y;
+
+
+### List/set traceur options
+
+The traceur compiler accepts many options.
+
+Launch the command `:opts` in the traceur-repl to see the current options passed to the compiler.
+
+To change options, you can pass arguments to `:opts`.
+
+For instance, `:opts +debug -classes outputLanguage=es6` will have the effect of:
+
+* setting the `debug` option to `true`,
+* setting the `classes` option to `false`,
+* setting the `outputLanguage` option to `'es6'`.
+

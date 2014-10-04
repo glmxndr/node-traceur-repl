@@ -1,2 +1,4 @@
 .editorconfig
 .jshintrc
+.gitignore
+test/
