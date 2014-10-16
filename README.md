@@ -18,11 +18,11 @@ In the command line, launch `traceur-repl`.
 
 A prompt `traceur>` should open.
 
-### Inline help
+### `:help`: Inline help
 
 There are several options added to the repl, launch `:help` to see them.
 
-### List/set traceur options
+### `:opts`: List/set traceur options
 
 The traceur compiler accepts many options.
 
@@ -61,7 +61,7 @@ You can enable all the experimental features at the same time with:
 
 You have to write 'experimental' in full though, no shortcut for that one.
 
-### Show traceur output
+### `:t`: Show traceur output for command
 
 If you want to see the result of traceur transpilation, prepend your command by `:t`.
 In this case, the transpiled code is not executed, only shown.
@@ -70,6 +70,8 @@ For instance:
     traceur> :t let x = 1
     "use strict";
     var x = 1;
+
+### `:tpaste`: Show traceur output for content of clipboard
 
 If you want to see how traceur transpiles the content of your clipboard, use `:tpaste`.
 The section between '<<<' and '>>>' is the content of your clipboard, the rest 
@@ -87,6 +89,8 @@ is the transpilation result.
       return x + y;
     });
 
+### `:tfile`: Show traceur output for content of a file
+
 If you want to see how traceur transpiles the content of a file, use `:tfile`.
 
     traceur> :tfile test/loadMe.js
@@ -98,15 +102,8 @@ If you want to see how traceur transpiles the content of a file, use `:tfile`.
     var y = add(x, x);
     y;
 
-### Use as a normal node repl
 
-Just type javascript code, and it will be transpiled/executed using the latest 
-traceur-compiler version available.
-
-    traceur> let x = 1
-    undefined
-    traceur> x
-    1
+### `:paste`: Execute the content of your clipboard
 
 If you want to execute the content of your clipboard, use `:paste`. The content
 pasted is executed. (The section between '<<<' and '>>>' is the content of your 
@@ -117,3 +114,13 @@ clipboard.)
     ...let x = 1
     ...let add = (x,y=1) => x+y
     >>>
+
+### Use as a normal node repl
+
+Just type javascript code, and it will be transpiled/executed using the latest 
+traceur-compiler version available.
+
+    traceur> let x = 1
+    undefined
+    traceur> x
+    1
